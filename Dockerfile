@@ -1,10 +1,3 @@
-#
-# ElasticSearch Dockerfile
-#
-# Copy from https://github.com/dockerfile/elasticsearch
-#
-
-# Pull base image.
 FROM jeanblanchard/busybox-java:7
 
 ENV ES_PKG_NAME elasticsearch-1.4.4
@@ -18,15 +11,8 @@ RUN \
   rm -f $ES_PKG_NAME.tar && \
   mv /$ES_PKG_NAME /elasticsearch
 
-# Define mountable directories.
-VOLUME ["/data"]
-
-
-# Define working directory.
-WORKDIR /data
-
 # Define default command.
-#CMD ["/elasticsearch/bin/elasticsearch"]
+CMD ["/elasticsearch/bin/elasticsearch"]
 
 # Expose ports.
 #   - 9200: HTTP
